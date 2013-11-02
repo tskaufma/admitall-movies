@@ -1,0 +1,10 @@
+<h1>Movie List</h1>
+
+<p>Last Update: {{movieData.updatedDate | date:medium}}</p>
+
+<ol>
+    <li ng-repeat="movie in movieData.movies">
+        <a href="#/movie/{{$index}}">{{movie.name}} ({{movie.format}})</a>
+    </li>
+</ol>
+

@@ -1,0 +1,20 @@
+<p> notes! </p>
+
+<ul>
+	<li ng-repeat="note in notes">
+		{{note.name}}
+		<ul>
+			<li ng-repeat="tag in note.tags">
+				{{tag.name}}
+			</li>
+		</ul>
+	</li>
+</ul>
+
+<form ng-submit="newNote()" >
+	<input type="text" name="name" placeholder="name" ng-model="newNoteName" />
+	<input type="text" name="tags" placeholder="tags" ng-model="newNoteTags" />
+	<input type="submit" id="submit" value="Add" />
+</form>
+
+

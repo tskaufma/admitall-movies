@@ -1,0 +1,6 @@
+<h1>{{movieData.movies[movieId].name}}</h1>
+<p>{{movieData.movies[movieId].summary}}</p>
+
+<p>Released: {{movieData.movies[movieId].releaseDate}}</p>
+<p>Genres: <span ng-repeat="genre in movieData.movies[movieId].genres">{{genre.name}} </span></p>
+

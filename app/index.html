@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>AdmitAll Movie DB Viewer</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.2/css/normalize.min.css"/>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.2/css/foundation.min.css"/>
+
+  <link rel="stylesheet" href="css/app.css"/>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.2/js/vendor/custom.modernizr.min.js"></script>
+</head>
+<body>
+
+  <nav class="top-bar">
+    <ul class="title-area">
+      <li class="name"><h1><a href="#/movies">AdmitAll Movie DB Viewer</a></h1></li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+    <secion class="top-bar-section">
+      <ul class="left">
+        <li class="divider"></li>
+        <li class="active"><a href="#/movies">Movie List</a></li>
+      </ul>
+  </nav>
+
+  <div class="row">
+    <div class="small-10 large-8 small-centered large-centered columns">
+      <div ng-view></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-8 large-centered columns">
+      <div>&copy; Copyright Trevor S. Kaufman 2013, Version: <span app-version></span></div>
+    </div>
+  </div>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.2/js/vendor/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.2/js/foundation.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  -->
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+
+<script>
+  $(document).foundation();
+</script>
+
+</body>
+</html>
