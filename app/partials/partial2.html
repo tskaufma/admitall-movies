@@ -1,6 +1,21 @@
-<h1>{{movieData.movies[movieId].name}}</h1>
-<p>{{movieData.movies[movieId].summary}}</p>
+<div ng-repeat="movie in movieData.movies | filter:{_id: movieId}">
+<div class="row">
+    <div class="small-12 columns">
+        <h1>{{movie.name}}</h1>
+    </div>
+</div>
 
-<p>Released: {{movieData.movies[movieId].releaseDate}}</p>
-<p>Genres: <span ng-repeat="genre in movieData.movies[movieId].genres">{{genre.name}} </span></p>
+<div class="row">
+    <div class="small-12 large-4 columns">
+        <img src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w185{{movie.posterPath}}"></img>
+    </div>
+    <div class="small-12 large-8 columns">
+        <p>{{movie.summary}}</p>
+    </div>
+</div>
+
+
+<p>Released: {{movie.releaseDate}}</p>
+<p>Genres: <span ng-repeat="genre in movie.genres">{{genre.name}} </span></p>
+</div>
 

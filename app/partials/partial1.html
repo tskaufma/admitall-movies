@@ -2,9 +2,27 @@
 
 <p>Last Update: {{movieData.updatedDate | date:medium}}</p>
 
-<ol>
-    <li ng-repeat="movie in movieData.movies">
-        <a href="#/movie/{{$index}}">{{movie.name}} ({{movie.format}})</a>
+<div class="row collapse">
+    <div class="small-1 columns">
+        <span class="prefix">
+            <i class="fi-magnifying-glass" />
+        </span>
+    </div>
+    <div class="small-11 columns">
+        <input type="text" ng-model="search.name"></input>
+    </div>
+</div>
+
+<div class="row">
+<div class="small-offset-1 small-10 columns">
+<ul class="no-bullet">
+    <li ng-repeat="movie in movieData.movies | filter:search">
+        <a href="#/movie/{{movie._id}}">
+            <img src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92{{movie.posterPath}}"></img>
+            {{movie.name}} ({{movie.format}})
+        </a>
     </li>
-</ol>
+</ul>
+</div>
+</div>
 
