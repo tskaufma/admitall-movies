@@ -8,14 +8,32 @@
 angular.module('myApp.services', []).
   value('version', '0.1').
   factory('movieData', ['$http', function($http) {
-      var movieData = {};
-      $http.get('../TKMovies.json').success(function(data) {
-          movieData.movies = $.grep(data.docs, function(item, index) { 
+      return $http.get('../TKMovies.json').then(function(response) {
+          var movieData = {};
+          movieData.movies = $.grep(response.data.docs, function(item, index) { 
               return item._id !== "config";
           });
           //data.date is in format 2013-11-01-16-17-21
-          movieData.updatedDate = moment(data.date, "YYYY-MM-DD-HH-mm-ss").toDate();
+          movieData.updatedDate = moment(response.data.date, "YYYY-MM-DD-HH-mm-ss").toDate();
+          return movieData;
       });
-      return movieData;
+  }]).
+  factory('movieFinder', ['movieData', function(movieData) {
+      var movies = movieData;
+      return {
+          getById: function (movieId) {
+              return movies.then(function (data) {
+                  var movies = $.grep(data.movies, function(item, index) {
+                      return item._id == movieId;
+                  });
+                  var movie = {}
+                  if (movies.length > 0) {
+                      movie = movies.shift();
+                  }
+                  return movie;
+              })
+          }
+      }
   }])
+  ;
 

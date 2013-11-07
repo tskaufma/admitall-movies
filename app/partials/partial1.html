@@ -18,7 +18,7 @@
 <ul class="no-bullet">
     <li ng-repeat="movie in movieData.movies | filter:search">
         <a href="#/movie/{{movie._id}}">
-            <img src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92{{movie.posterPath}}"></img>
+            <img ng-src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92{{movie.posterPath}}"></img>
             {{movie.name}} ({{movie.format}})
         </a>
     </li>
