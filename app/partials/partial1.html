@@ -9,20 +9,36 @@
         </span>
     </div>
     <div class="small-11 columns">
-        <input type="text" ng-model="search.name"></input>
+        <input type="text" ng-model="query.name" ng-change="search()" ></input>
     </div>
 </div>
 
 <div class="row">
 <div class="small-offset-1 small-10 columns">
 <ul class="no-bullet">
-    <li ng-repeat="movie in movieData.movies | filter:search">
+    <li ng-repeat="movie in filteredItems | startFrom:pager.currentPage*pager.pageSize | limitTo:pager.pageSize">
         <a href="#/movie/{{movie._id}}">
             <img ng-src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92{{movie.posterPath}}"></img>
             {{movie.name}} ({{movie.format}})
         </a>
     </li>
 </ul>
+</div>
+</div>
+<div class="row">
+<div class="small-offset-1 small-10 columns">
+    <ul class="pagination">
+        <li class="arrow" ng-class="{unavailable: !pager.canPrev()}">
+            <a href ng-click="pager.prevPage()">&laquo;</a>
+        </li>
+        <li ng-repeat="n in range(pager.numberOfPages())" 
+            ng-class="{current: n==pager.currentPage}">
+            <a href ng-bind="n+1" ng-click="pager.currentPage=n">1</a>
+        </li>
+        <li class="arrow" ng-class="{unavailable: !pager.canNext()}">
+            <a href ng-click="pager.nextPage()">&raquo;</a>
+        </li>
+    </ul>
 </div>
 </div>
 
