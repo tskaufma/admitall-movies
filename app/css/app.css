@@ -29,3 +29,11 @@
   padding: 0;
 }
 
+.row.display {
+  margin-bottom: 5px;
+}
+
+.row.collapse.display {
+  margin-bottom: 5px;
+}
+

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="small-12 columns">
-        <h1>{{movie.name}}</h1>
+        <h1>{{movie.name}} <small>({{movie.releaseDate | parseDate:'YYYY-MM-DD' | date:'yyyy' }})</small></h1>
     </div>
 </div>
 
@@ -14,6 +14,6 @@
 </div>
 
 
-<p>Released: {{movie.releaseDate}}</p>
-<p>Genres: <span ng-repeat="genre in movie.genres">{{genre.name}} </span></p>
+<p>Released: {{movie.releaseDate | parseDate:'YYYY-MM-DD' | date:'longDate'}}</p>
+<p>Genres: <span> {{movie.genres | listNames}} </span></p>
 

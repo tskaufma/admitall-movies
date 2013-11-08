@@ -17,10 +17,38 @@
 <div class="small-offset-1 small-10 columns">
 <ul class="no-bullet">
     <li ng-repeat="movie in filteredItems | startFrom:pager.currentPage*pager.pageSize | limitTo:pager.pageSize">
-        <a href="#/movie/{{movie._id}}">
-            <img ng-src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92{{movie.posterPath}}"></img>
-            {{movie.name}} ({{movie.format}})
-        </a>
+        <div class="row collapse display">
+            <div class="small-3 columns">
+                <a href="#/movie/{{movie._id}}"><img ng-src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92{{movie.posterPath}}"></img></a>
+            </div>
+            <div class="small-9 columns">
+                <div class="row">
+                    <div class="small-12">
+                <a href="#/movie/{{movie._id}}">{{movie.name}} ({{movie.releaseDate | parseDate:'YYYY-MM-DD' | date:'yyyy' }})</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12">
+                    <span><i class="fi-monitor"></i> {{movie.format}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12">
+                    <span><i class="fi-star"></i> {{movie.otherRating | number:1}}/10</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12">
+                    <span><i class="fi-pricetag-multiple"></i> {{movie.genres | listNames}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12">
+                    <span><i class="fi-torso"></i> {{movie.cast | limitTo:3 | listNames}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 </div>
