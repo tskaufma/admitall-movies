@@ -1,6 +1,8 @@
-<h1>Movie List</h1>
-
-<p>Last Update: {{movieData.updatedDate | date:medium}}</p>
+<div class="row">
+    <div class="small-12 columns">
+        <h1>Movie List</h1>
+    </div>
+</div>
 
 <div class="row collapse">
     <div class="small-1 columns">
@@ -14,36 +16,39 @@
 </div>
 
 <div class="row">
-<div class="small-offset-1 small-10 columns">
+<div class="small-12 large-10 large-centered columns">
 <ul class="no-bullet">
     <li ng-repeat="movie in filteredItems | startFrom:pager.currentPage*pager.pageSize | limitTo:pager.pageSize">
         <div class="row collapse display">
-            <div class="small-3 columns">
+            <div class="small-2 columns">
                 <a href="#/movie/{{movie._id}}"><img ng-src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92{{movie.posterPath}}"></img></a>
             </div>
-            <div class="small-9 columns">
+            <div class="small-10 columns">
                 <div class="row">
-                    <div class="small-12">
+                    <div class="small-12 columns">
                 <a href="#/movie/{{movie._id}}">{{movie.name}} ({{movie.releaseDate | parseDate:'YYYY-MM-DD' | date:'yyyy' }})</a>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="small-12">
-                    <span><i class="fi-monitor"></i> {{movie.format}}</span>
+                    <div class="small-12 columns">
+                    <span> {{movie.tagline}} </span>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="small-12">
+                    <div class="small-12 large-9 push-3 columns">
+                    <span><i class="fi-monitor"></i> {{movie.format}}</span>
+                    </div>
+                    <div class="small-12 large-3 pull-9 columns">
                     <span><i class="fi-star"></i> {{movie.otherRating | number:1}}/10</span>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="small-12">
+                    <div class="small-12 columns">
                     <span><i class="fi-pricetag-multiple"></i> {{movie.genres | listNames}}</span>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="small-12">
+                    <div class="small-12 columns">
                     <span><i class="fi-torso"></i> {{movie.cast | limitTo:3 | listNames}}</span>
                     </div>
                 </div>
@@ -68,5 +73,10 @@
         </li>
     </ul>
 </div>
+</div>
+<div class="row">
+    <div class="small-12 columns">
+        <p>Last Update: {{movieData.updatedDate | date:medium}}</p>
+    </div>
 </div>
 

@@ -9,7 +9,7 @@ angular.module('myApp.controllers', [])
     $scope.filteredItems = [];
     $scope.pager = {
         currentPage: 0,
-        pageSize: 2,
+        pageSize: 5,
         numberOfPages: function() {
             return Math.ceil($scope.filteredItems.length/$scope.pager.pageSize);
         },
