@@ -13,6 +13,8 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.2/js/vendor/custom.modernizr.min.js"></script>
 </head>
 <body>
+<div id="wrap">
+    <div id="main">
 
   <nav class="top-bar">
     <ul class="title-area">
@@ -31,12 +33,28 @@
       <div ng-view></div>
     </div>
   </div>
+    
+    </div>
+</div>
+
+<div id=footer>
 
   <div class="row">
     <div class="small-12 large-10 large-centered columns">
-      <div>&copy; Copyright Trevor S. Kaufman 2013, Version: <span app-version></span></div>
+      <div class="row">
+        <div class="small-8 large-9 columns">
+          <div><b>&copy; Copyright Trevor S. Kaufman 2013, Version: <span app-version></span><b></div>
+        </div>
+        <div class="small-4 large-3 columns">
+          <img src="http://www.themoviedb.org/images/logos/tmdb-logo-1.png"></img>
+          <span><small>This product uses the TMDb API but is not endorsed or certified by TMDb.<small></span>
+        </div>
+      </div>
+
     </div>
   </div>
+  
+</div>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.2/js/vendor/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.2/js/foundation.min.js"></script>
