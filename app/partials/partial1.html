@@ -17,10 +17,10 @@
 
 <div class="row">
     <div class="small-6 columns">
-        <a class="button dropdown" data-dropdown="sort-by-drop">Sort by {{sort.prop}}</a>
+        <a id="sort-by" class="button dropdown" data-dropdown="sort-by-drop">Sort by {{sort.prop}}</a>
         <ul id="sort-by-drop" class="f-dropdown" data-dropdown-content>
-            <li><a ng-click="sort.prop = 'name'">Name</a></li>
-            <li><a ng-click="sort.prop = 'releaseDate'">Release Date</a></li>
+            <li><a ng-click="sort.set('name')">Name</a></li>
+            <li><a ng-click="sort.set('releaseDate')">Release Date</a></li>
         </ul>
     </div>
 </div>

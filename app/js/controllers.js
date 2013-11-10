@@ -48,7 +48,11 @@ angular.module('myApp.controllers', [])
 
     $scope.sort = {
         prop: 'name',
-        reverse: false
+        reverse: false,
+        set: function(sortProp) {
+            this.prop = sortProp;
+            Foundation.libs.dropdown.close($('#sort-by-drop'));
+        }
     };
 
     $scope.search();
