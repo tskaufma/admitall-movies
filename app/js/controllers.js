@@ -46,8 +46,12 @@ angular.module('myApp.controllers', [])
         $scope.pager.currentPage = 0;
     };
 
-    $scope.search();
+    $scope.sort = {
+        prop: 'name',
+        reverse: false
+    };
 
+    $scope.search();
 
 }])
 .controller('MyCtrl2', ['$scope', 'movie', function($scope, movie) {

@@ -16,9 +16,19 @@
 </div>
 
 <div class="row">
+    <div class="small-6 columns">
+        <a class="button dropdown" data-dropdown="sort-by-drop">Sort by {{sort.prop}}</a>
+        <ul id="sort-by-drop" class="f-dropdown" data-dropdown-content>
+            <li><a ng-click="sort.prop = 'name'">Name</a></li>
+            <li><a ng-click="sort.prop = 'releaseDate'">Release Date</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
 <div class="small-12 large-10 large-centered columns">
 <ul class="no-bullet">
-    <li ng-repeat="movie in filteredItems | startFrom:pager.currentPage*pager.pageSize | limitTo:pager.pageSize">
+    <li ng-repeat="movie in filteredItems | orderBy:sort.prop:sort.reverse | startFrom:pager.currentPage*pager.pageSize | limitTo:pager.pageSize">
         <div class="row collapse display">
             <div class="small-2 columns">
                 <a href="#/movie/{{movie._id}}"><img ng-src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92{{movie.posterPath}}"></img></a>
