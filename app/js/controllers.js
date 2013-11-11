@@ -5,7 +5,7 @@
 angular.module('myApp.controllers', [])
 .controller('MyCtrl1', ['$scope', '$filter', 'movieList', function($scope, $filter, movieList) {
     $scope.movieData = movieList;
-    $scope.query ;
+    $scope.query = {};
     $scope.filteredItems = [];
     $scope.pager = {
         currentPage: 0,
@@ -66,6 +66,8 @@ angular.module('myApp.controllers', [])
             display: 'Release Date'
         }]
     };
+    
+    $scope.query.format = "";
 
     $scope.search();
 
