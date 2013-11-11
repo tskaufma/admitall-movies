@@ -17,11 +17,18 @@
 
 <div class="row">
     <div class="small-6 columns">
-        <a id="sort-by" class="button dropdown" data-dropdown="sort-by-drop">Sort by {{sort.prop}}</a>
+        <a id="sort-by" class="small button dropdown" data-dropdown="sort-by-drop">Sort by {{sort.display}}</a>
         <ul id="sort-by-drop" class="f-dropdown" data-dropdown-content>
-            <li><a ng-click="sort.set('name')">Name</a></li>
-            <li><a ng-click="sort.set('releaseDate')">Release Date</a></li>
+            <li ng-repeat="item in sort.criteria">
+                <a ng-click="sort.set(item)">{{item.display}}</a>
+            </li>
         </ul>
+    </div>
+    <div class="small-6 columns">
+        <a id="sort-direction" class="small button" ng-click="sort.toggleReverse()">
+            <span ng-show="sort.reverse">Descending <i class="fi-arrow-down"></i></span>
+            <span ng-show="!sort.reverse">Ascending <i class="fi-arrow-up"> </i></span>
+        </a>
     </div>
 </div>
 
