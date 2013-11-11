@@ -46,8 +46,28 @@ angular.module('myApp.controllers', [])
         $scope.pager.currentPage = 0;
     };
 
-    $scope.search();
+    $scope.sort = {
+        prop: 'name',
+        display: 'Name',
+        reverse: false,
+        set: function(sortCriteria) {
+            this.prop = sortCriteria.prop;
+            this.display = sortCriteria.display;
+            Foundation.libs.dropdown.close($('#sort-by-drop'));
+        },
+        toggleReverse: function() {
+            this.reverse = !this.reverse;
+        },
+        criteria:  [{
+            prop: 'name',
+            display: 'Name'
+        }, {
+            prop: 'releaseDate',
+            display: 'Release Date'
+        }]
+    };
 
+    $scope.search();
 
 }])
 .controller('MyCtrl2', ['$scope', 'movie', function($scope, movie) {
