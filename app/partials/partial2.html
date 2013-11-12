@@ -6,14 +6,57 @@
 
 <div class="row">
     <div class="small-12 large-4 columns">
-        <img ng-src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w185{{movie.posterPath}}"></img>
+        <img ng-src="//d3gtl9l2a4fn1j.cloudfront.net/t/p/w185{{movie.posterPath}}"></img>
     </div>
     <div class="small-12 large-8 columns">
+        <div class="row display">
+            <div class="small-6 columns">
+                <span><i class="fi-star"></i> {{movie.otherRating | number:1}}/10</span>
+            </div>
+            <div class="small-6 columns">
+                <span><i class="fi-monitor"></i> {{movie.format}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-12 columns">
         <p>{{movie.summary}}</p>
+        <p><i class="fi-calendar"></i> Released: {{movie.releaseDate | parseDate:'YYYY-MM-DD' | date:'longDate'}}</p>
+        <p><i class="fi-pricetag-multiple"></i> Genres: <span> {{movie.genres | listNames}} </span></p>
+        <p><i class="fi-torso"></i> Cast: <span> {{movie.cast | listNames}} </span></p>
+            </div>
+        </div>
     </div>
 </div>
 
-
-<p>Released: {{movie.releaseDate | parseDate:'YYYY-MM-DD' | date:'longDate'}}</p>
-<p>Genres: <span> {{movie.genres | listNames}} </span></p>
+<div class="row">
+    <div class="small-12 columns">
+        <div class="row">
+            <div class="small-12 columns">
+                <h3>More Info</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-12 large-6 columns">
+                <div class="row movie-links">
+                    <div class="small-12 columns">
+                        <img src="http://www.themoviedb.org/images/logos/tmdb-logo-1.png"></img>
+                    </div>
+                    <div class="small-12 columns">
+                        <a href="http://www.themoviedb.org/movie/{{movie.tmdbId}}">{{movie.name}} on TheMovieDB.org</a>
+                    </div>
+                </div>
+            </div>
+            <div class="small-12 large-6 columns">
+                <div class="row movie-links">
+                    <div class="small-12 columns">
+                        <img src="http://ia.media-imdb.com/images/M/MV5BMTgyOTIzMTA0NV5BMl5BcG5nXkFtZTcwMTA3MDg2OA@@._V1_.png"></img>
+                    </div>
+                    <div class="small-12 columns">
+                        <a href="http://www.imdb.com/title/{{movie.imdbId}}/">{{movie.name}} on IMBb</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 

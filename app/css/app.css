@@ -37,3 +37,15 @@
   margin-bottom: 5px;
 }
 
+.row.movie-links {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.row.movie-links img {
+    height: 26px;
+}
+
+.footer {
+    padding: 20px 0;
+}
