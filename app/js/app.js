@@ -23,6 +23,12 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives', 
             }]
         }
     });
+
+    $routeProvider.when('/about', {
+        templateUrl: 'partials/about.html',
+        controller: 'AboutCtrl'
+    });
+
     $routeProvider.otherwise({redirectTo: '/movies'});
 
     //$locationProvider.html5Mode(true);
