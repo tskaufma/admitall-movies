@@ -33,6 +33,21 @@
 </div>
 
 <div class="row">
+    <div class="small-12 columns">
+        <h3>Filters</h3>
+        <ul>
+            <li ng-repeat="format in formats"><b>{{format.label}}</b> {{format.value}}</li> 
+        </ul>
+        <form class="custom">
+        <label for="formatfilter">Medium Example</label>
+        <select id="formatfilter" ng-model="query.format" ng-change="search()">
+            <option ng-repeat="format in formats" value="{{format.value}}">{{format.label}}</option>
+        </select>
+        </form>
+    </div>
+</div>
+
+<div class="row">
 <div class="small-12 large-10 large-centered columns">
 <ul class="no-bullet">
     <li ng-repeat="movie in filteredItems | orderBy:sort.prop:sort.reverse | startFrom:pager.currentPage*pager.pageSize | limitTo:pager.pageSize">

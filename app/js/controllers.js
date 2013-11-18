@@ -3,8 +3,10 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-.controller('MyCtrl1', ['$scope', '$filter', 'movieList', function($scope, $filter, movieList) {
+.controller('MyCtrl1', ['$scope', '$filter', 'movieList', 'formats', function($scope, $filter, movieList, formats) {
     $scope.movieData = movieList;
+    $scope.formats = formats;
+    console.log($scope.formats);
     $scope.query = {};
     $scope.filteredItems = [];
     $scope.pager = {

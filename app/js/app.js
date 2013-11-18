@@ -10,6 +10,9 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives', 
         resolve: {
             movieList: ['movieData', function(movieData) {
                 return movieData;
+            }],
+            formats: ['movieFormats', function(movieFormats) {
+                return movieFormats;
             }]
         }
     });

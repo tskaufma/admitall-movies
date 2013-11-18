@@ -26,14 +26,32 @@ angular.module('myApp.services', []).
                   var movies = $.grep(data.movies, function(item, index) {
                       return item._id == movieId;
                   });
-                  var movie = {}
+                  var movie = {};
                   if (movies.length > 0) {
                       movie = movies.shift();
                   }
                   return movie;
-              })
+              });
           }
-      }
+      };
+  }]).
+  factory('movieFormats', ['movieData', function(movieData) {
+      return movieData.then(function (data) {
+          var formats = {};
+          formats["All Formats"] = "";
+          data.movies.map(function(movie) {
+              return movie.format;
+          }).forEach(function(format) {
+              formats[format] = format;
+          });
+          var retVal = [];
+          console.log(formats);
+          $.each(formats, function(index, value) {
+            console.log("index: " + index + ", value: " + value);
+            retVal.push({"label": index, "value": value}); 
+          });
+          return retVal;
+      });
   }])
   ;
 
