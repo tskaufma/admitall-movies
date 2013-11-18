@@ -6,7 +6,7 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 angular.module('myApp.services', []).
-  value('version', '0.5').
+  value('version', '1.0.0').
   factory('movieData', ['$http', function($http) {
       return $http.get('../TKMovies.json').then(function(response) {
           var movieData = {};

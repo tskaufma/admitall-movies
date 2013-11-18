@@ -74,5 +74,8 @@ angular.module('myApp.controllers', [])
 }])
 .controller('MyCtrl2', ['$scope', 'movie', function($scope, movie) {
     $scope.movie = movie;
-}]);
+}])
+.controller('AboutCtrl', [function() {
+}])
+;
 
