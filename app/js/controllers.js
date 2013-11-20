@@ -6,6 +6,18 @@ angular.module('myApp.controllers', [])
 .controller('MyCtrl1', ['$scope', '$filter', 'movieList', 'formats', function($scope, $filter, movieList, formats) {
     $scope.movieData = movieList;
     $scope.formats = formats;
+    $scope.filters = {
+        format: {
+            options: formats,
+            display: "All Formats",
+            set: function(option) {
+                $scope.query.format = option.value;
+                this.display = option.label;
+                Foundation.libs.dropdown.close($('#filter-format-drop'));
+                $scope.search();
+            }
+        }
+    };
     console.log($scope.formats);
     $scope.query = {};
     $scope.filteredItems = [];

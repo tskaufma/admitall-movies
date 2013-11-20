@@ -35,15 +35,12 @@
 <div class="row">
     <div class="small-12 columns">
         <h3>Filters</h3>
-        <ul>
-            <li ng-repeat="format in formats"><b>{{format.label}}</b> {{format.value}}</li> 
+        <a id="filter-format" class="small button dropdown" data-dropdown="filter-format-drop">Format: {{filters.format.display}}</a>
+        <ul id="filter-format-drop" class="f-dropdown" data-dropdown-content>
+            <li ng-repeat="format in formats">
+                <a ng-click="filters.format.set(format)">{{format.label}}</a>
+            </li>
         </ul>
-        <form class="custom">
-        <label for="formatfilter">Medium Example</label>
-        <select id="formatfilter" ng-model="query.format" ng-change="search()">
-            <option ng-repeat="format in formats" value="{{format.value}}">{{format.label}}</option>
-        </select>
-        </form>
     </div>
 </div>
 
